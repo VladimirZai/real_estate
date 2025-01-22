@@ -3,6 +3,12 @@
 from django.db import migrations
 
 
+def set_new_building_from_year(apps, schema_editor):
+    Flat = apps.get_model('property', 'Flat')
+    Flat.objects.filter(construction_year__lt=2015).update(new_building=False)
+    Flat.objects.filter(construction_year__gte=2015).update(new_building=True)
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -10,4 +16,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(set_new_building_from_year),
     ]
