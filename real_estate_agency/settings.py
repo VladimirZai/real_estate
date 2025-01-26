@@ -15,7 +15,7 @@ SECRET_KEY = env.str('SECRET_KEY', 'REPLACE_ME')
 
 DEBUG = env.bool('DEBUG', True)
 
-
+COUNTRY = 'RU'
 # Application definition
 
 INSTALLED_APPS = [
