@@ -25,6 +25,6 @@ class ComplaintAdmin(admin.ModelAdmin):
 
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'phonenumber', )
+    list_display = ('name', 'phonenumber', )
     exclude = ('owned_flats', )
     inlines = [OwnerInline]
